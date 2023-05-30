@@ -16,7 +16,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="jwt" elementType="Argument">
             <stringProp name="Argument.name">jwt</stringProp>
-            <stringProp name="Argument.value">yJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI4NTEzNzc4NWM4NTczNDAxYTQ5NjEzYWY1ZmRiMTk4OWNmNmZmZGY5Y2Q3N2RlYTM1MWNkOWU1NGZjMTdkYzgxIiwic3ViIjoicGVybGEuYmFtQGhvdG1haWwuY29tIiwiZXhwIjoxNjg1NDc3OTIwfQ.qu3fF-Rb-hE0mll7v-iQ6qXAp0CBwo4ra4R44256thY</stringProp>
+            <stringProp name="Argument.value">eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI4NTEzNzc4NWM4NTczNDAxYTQ5NjEzYWY1ZmRiMTk4OWNmNmZmZGY5Y2Q3N2RlYTM1MWNkOWU1NGZjMTdkYzgxIiwic3ViIjoicGVybGEuYmFtQGhvdG1haWwuY29tIiwiZXhwIjoxNjg1NDgxMTI3fQ.e5iPeFfY5SxLen74se2eey8tU4COfDSbQKOy1fxuvAw</stringProp>
             <stringProp name="Argument.desc">Token</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -155,7 +155,13 @@
           <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getSingleTemplate" enabled="true">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - template_id" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">template_id</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.response..id</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getTemplates" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -174,12 +180,6 @@
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - template_id" enabled="true">
-            <stringProp name="JSONPostProcessor.referenceNames">template_id</stringProp>
-            <stringProp name="JSONPostProcessor.jsonPathExprs">$.response..id</stringProp>
-            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-          </JSONPostProcessor>
-          <hashTree/>
         </hashTree>
         <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="PDF_02_UpdateTemplate_S02_putUpdateTemplate " enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
@@ -193,7 +193,7 @@
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.value">{&#xd;
-    &quot;name&quot;: &quot;Modified_Template&quot;,&#xd;
+    &quot;name&quot;: &quot;My_Renewed_Secret&quot;,&#xd;
     &quot;tags&quot;: [&#xd;
         &quot;invoice&quot;,&#xd;
         &quot;perf&quot;&#xd;
@@ -329,7 +329,17 @@
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
-          <hashTree/>
+          <hashTree>
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion" enabled="true">
+              <stringProp name="JSON_PATH">$.response.name</stringProp>
+              <stringProp name="EXPECTED_VALUE">My_Renewed_Secret</stringProp>
+              <boolProp name="JSONVALIDATION">true</boolProp>
+              <boolProp name="EXPECT_NULL">false</boolProp>
+              <boolProp name="INVERT">false</boolProp>
+              <boolProp name="ISREGEX">true</boolProp>
+            </JSONPathAssertion>
+            <hashTree/>
+          </hashTree>
         </hashTree>
       </hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="BP03_Create_Template" enabled="false">
@@ -358,7 +368,7 @@
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.value">{&#xd;
-    &quot;name&quot;: &quot;Invoice template&quot;,&#xd;
+    &quot;name&quot;: &quot;My_New_Secret&quot;,&#xd;
     &quot;tags&quot;: [&#xd;
         &quot;invoice&quot;,&#xd;
         &quot;orders&quot;&#xd;
@@ -494,7 +504,17 @@
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
-          <hashTree/>
+          <hashTree>
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion" enabled="true">
+              <stringProp name="JSON_PATH">$.response..name</stringProp>
+              <stringProp name="EXPECTED_VALUE">My_New_Secret</stringProp>
+              <boolProp name="JSONVALIDATION">true</boolProp>
+              <boolProp name="EXPECT_NULL">false</boolProp>
+              <boolProp name="INVERT">false</boolProp>
+              <boolProp name="ISREGEX">true</boolProp>
+            </JSONPathAssertion>
+            <hashTree/>
+          </hashTree>
         </hashTree>
       </hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="BP04_Delete_Template" enabled="true">
@@ -592,10 +612,8 @@
           </HTTPSamplerProxy>
           <hashTree>
             <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion" enabled="true">
-              <stringProp name="JSON_PATH">false</stringProp>
-              <stringProp name="EXPECTED_VALUE">pm.test(&quot;Status code is 200&quot;, function () {
-    pm.response.to.have.status(200);
-});</stringProp>
+              <stringProp name="JSON_PATH">$.status</stringProp>
+              <stringProp name="EXPECTED_VALUE">404</stringProp>
               <boolProp name="JSONVALIDATION">true</boolProp>
               <boolProp name="EXPECT_NULL">false</boolProp>
               <boolProp name="INVERT">false</boolProp>
