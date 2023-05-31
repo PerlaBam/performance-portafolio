@@ -16,7 +16,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="jwt" elementType="Argument">
             <stringProp name="Argument.name">jwt</stringProp>
-            <stringProp name="Argument.value">eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI4NTEzNzc4NWM4NTczNDAxYTQ5NjEzYWY1ZmRiMTk4OWNmNmZmZGY5Y2Q3N2RlYTM1MWNkOWU1NGZjMTdkYzgxIiwic3ViIjoicGVybGEuYmFtQGhvdG1haWwuY29tIiwiZXhwIjoxNjg1NDgxMTI3fQ.e5iPeFfY5SxLen74se2eey8tU4COfDSbQKOy1fxuvAw</stringProp>
+            <stringProp name="Argument.value">eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI4NTEzNzc4NWM4NTczNDAxYTQ5NjEzYWY1ZmRiMTk4OWNmNmZmZGY5Y2Q3N2RlYTM1MWNkOWU1NGZjMTdkYzgxIiwic3ViIjoicGVybGEuYmFtQGhvdG1haWwuY29tIiwiZXhwIjoxNjg1NDk2MTE3fQ.louf8GhbJrO5Zo44j2tgHukkREKZudbpohPRrI9ZEVU</stringProp>
             <stringProp name="Argument.desc">Token</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -32,7 +32,7 @@
         </collectionProp>
       </HeaderManager>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="BP01_Copy_Template" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="BP01_Copy_Template" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -136,7 +136,7 @@
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="BP02_Update_Template" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="BP02_Update_Template" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -342,7 +342,7 @@
           </hashTree>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="BP03_Create_Template" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="BP03_Create_Template" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
